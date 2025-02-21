@@ -24,8 +24,8 @@ public class ClientRepository {
         while (rows.next()){
             Client client = new Client();
             client.setId(rows.getInt("id"));
-            client.setFirstName(rows.getString("firstname"));
-            client.setLastName(rows.getString("lastname"));
+            client.setFirstname(rows.getString("firstname"));
+            client.setLastname(rows.getString("lastname"));
             client.setEmail(rows.getString("email"));
             client.setPhone(rows.getString("phone"));
             client.setAddress(rows.getString("address"));
@@ -43,8 +43,8 @@ public class ClientRepository {
         if (rows.next()) {
             Client client = new Client();
             client.setId(rows.getInt("id"));
-            client.setFirstName(rows.getString("firstname"));
-            client.setLastName(rows.getString("lastname"));
+            client.setFirstname(rows.getString("firstname"));
+            client.setLastname(rows.getString("lastname"));
             client.setEmail(rows.getString("email"));
             client.setPhone(rows.getString("phone"));
             client.setAddress(rows.getString("address"));
@@ -63,8 +63,8 @@ public class ClientRepository {
         if (rows.next()) {
             Client client = new Client();
             client.setId(rows.getInt("id"));
-            client.setFirstName(rows.getString("firstname"));
-            client.setLastName(rows.getString("lastname"));
+            client.setFirstname(rows.getString("firstname"));
+            client.setLastname(rows.getString("lastname"));
             client.setEmail(rows.getString("email"));
             client.setPhone(rows.getString("phone"));
             client.setAddress(rows.getString("address"));
@@ -79,7 +79,7 @@ public class ClientRepository {
     public Client createClient(Client client) {
         String sql = "INSERT INTO clients(firstname, lastname, email, phone, "
                 + "address, created_at) VALUES (?, ?, ?, ?, ?, ?)";
-        int count = jdbcTemplate.update(sql, client.getFirstName(), client.getLastName(), client.getEmail()
+        int count = jdbcTemplate.update(sql, client.getFirstname(), client.getLastname(), client.getEmail()
                 , client.getPhone(), client.getAddress(), client.getCreatedAt());
         if (count > 0) {
             int id = jdbcTemplate.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
@@ -91,9 +91,9 @@ public class ClientRepository {
 
     public Client updateClient(Client client){
         String sql = "UPDATE clients SET firstname=?, lastname=?, email=?, " +
-                "phone=?, address=?, created_at=?, WHERE id=?";
+                "phone=?, address=?, created_at=? WHERE id=?";
 
-        jdbcTemplate.update(sql, client.getFirstName(), client.getLastName(), client.getEmail()
+        jdbcTemplate.update(sql, client.getFirstname(), client.getLastname(), client.getEmail()
                 , client.getPhone(), client.getAddress(), client.getCreatedAt(), client.getId());
 
         return getClient(client.getId());
