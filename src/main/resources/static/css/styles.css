@@ -1,0 +1,19 @@
+body {
+    background-color: #f5e1c8;  /* Bege claro */
+    color: #3d2b1f;  /* Marrom escuro para textos */
+}
+
+
+.navbar {
+    background-color: #825e34;
+}
+
+footer {
+    background-color: #825e34;
+
+      position: fixed;
+        bottom: 0;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+}
